@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #050308;
+  --pink: #ff6f9f;
+  --rose: #ff3f78;
+  --purple: #9d65ff;
+  --text: #fff4f8;
+  --muted: #c7aeba;
+  --glass: rgba(255,255,255,.055);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100vh; color: var(--text); background: var(--bg);
+  font-family: 'Montserrat', sans-serif; overflow-x: hidden;
+}
+body::before {
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(148,70,130,.20), transparent 32%),
+    radial-gradient(circle at 15% 75%, rgba(92,55,160,.13), transparent 30%),
+    radial-gradient(circle at 85% 65%, rgba(255,55,120,.10), transparent 28%);
+}
+#stars, #particles, #hearts { position:fixed; inset:0; pointer-events:none; z-index:1; }
+.star { position:absolute; width:2px; height:2px; border-radius:50%; background:#fff; opacity:.5; animation: twinkle 3s infinite ease-in-out; }
+.particle { position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(255,130,180,.6); filter:blur(.5px); animation: drift 10s linear infinite; }
+.heart { position:absolute; color:rgba(255,90,140,.22); font-size:18px; animation: floatHeart 9s linear infinite; }
+
+.screen { min-height:100vh; position:relative; z-index:2; display:flex; align-items:center; justify-content:center; padding:28px 18px; }
+.content { width:min(900px,100%); text-align:center; position:relative; z-index:3; }
+.eyebrow { text-transform:uppercase; letter-spacing:.28em; font-size:.65rem; color:#dbaec3; margin-bottom:20px; }
+h1, h2, h3, .name-line, .cinematic-line { font-family:'Cormorant Garamond', serif; }
+h1 { font-size:clamp(2.7rem,10vw,6rem); line-height:.9; font-weight:500; margin:0; text-shadow:0 0 35px rgba(255,72,130,.22); }
+h1 span { display:inline-block; animation:pulse 2s infinite; }
+.subtitle { color:var(--muted); font-size:.95rem; margin:28px 0 40px; }
+.countdown { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; max-width:650px; margin:auto; }
+.countdown div {
+  padding:18px 5px; border:1px solid rgba(255,255,255,.09); background:var(--glass);
+  border-radius:18px; backdrop-filter:blur(8px); box-shadow:0 0 30px rgba(255,60,130,.05);
+}
+.countdown strong { display:block; font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,8vw,4rem); font-weight:500; }
+.countdown span { color:#aa91a0; font-size:.58rem; text-transform:uppercase; letter-spacing:.18em; }
+.hint { color:#866f7c; margin-top:34px; font-size:.75rem; }
+
+.hidden { display:none !important; }
+.reveal-stage { text-align:center; max-width:900px; padding:20px; }
+.cinematic-line { opacity:0; font-size:clamp(2rem,8vw,4.5rem); line-height:1; margin:0 0 30px; }
+.name-line { opacity:0; font-size:clamp(4rem,18vw,9rem); line-height:.8; color:#fff; text-shadow:0 0 45px rgba(255,74,135,.55); margin:15px 0 35px; }
+.fade-in { animation: cinematicIn 2.2s ease forwards; }
+.fade-out { animation: cinematicOut 1.4s ease forwards; }
+.birthday-content { width:min(900px,100%); text-align:center; padding:70px 0 40px; }
+.hero-heart { font-size:4rem; color:var(--pink); text-shadow:0 0 40px rgba(255,55,120,.8); animation:pulse 1.7s infinite; }
+.birthday-content h2 { font-size:clamp(2.5rem,9vw,5.5rem); line-height:.9; font-weight:500; margin:15px 0 45px; }
+.birthday-content h2 span { color:#ff78a5; text-shadow:0 0 30px rgba(255,50,120,.35); }
+.letter {
+  text-align:center; max-width:700px; margin:0 auto; padding:28px;
+  border:1px solid rgba(255,255,255,.09); border-radius:26px; background:rgba(255,255,255,.035);
+  box-shadow:0 20px 70px rgba(0,0,0,.35);
+}
+.letter p { font-family:'Cormorant Garamond',serif; font-size:1.28rem; line-height:1.55; color:#ead9e1; margin:0 0 17px; }
+.letter p:first-child { color:#fff; font-size:1.7rem; }
+.signature { margin-top:28px !important; color:#ff8db2 !important; }
+.memories { margin-top:110px; }
+.memories h3 { font-size:clamp(2.8rem,9vw,5rem); font-weight:500; margin:0; }
+.section-note { color:#9e8794; font-size:.8rem; margin:12px 0 30px; }
+.gallery { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:30px; }
+.photo-card { aspect-ratio:1/1.15; overflow:hidden; border-radius:18px; border:1px solid rgba(255,255,255,.1); background:#0d080e; box-shadow:0 15px 45px rgba(0,0,0,.4); }
+.photo-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .7s ease; }
+.photo-card:hover img { transform:scale(1.05); }
+.gallery-empty { color:#806b77; line-height:1.8; padding:30px; border:1px dashed rgba(255,255,255,.12); border-radius:20px; }
+.ending { margin:120px auto 70px; max-width:650px; font-family:'Cormorant Garamond',serif; font-size:1.5rem; line-height:1.4; }
+.ending .line { width:70px; height:1px; margin:0 auto 35px; background:rgba(255,120,160,.6); }
+.ending span { display:block; margin-top:25px; color:#ff85ad; font-size:1rem; }
+.music-button {
+  border:1px solid rgba(255,130,170,.35); background:rgba(255,255,255,.04); color:#ffe8f0;
+  padding:13px 20px; border-radius:999px; font:500 .75rem 'Montserrat',sans-serif; letter-spacing:.06em;
+  cursor:pointer; transition:.3s; margin-bottom:30px;
+}
+.music-button:hover { background:rgba(255,100,150,.1); transform:translateY(-2px); }
+
+.orb { position:absolute; border-radius:50%; filter:blur(50px); opacity:.18; pointer-events:none; }
+.orb-one { width:220px;height:220px;background:#ff3e78;left:2%;top:12%; }
+.orb-two { width:240px;height:240px;background:#7d4cff;right:0;bottom:8%; }
+
+@keyframes twinkle { 0%,100%{opacity:.2;transform:scale(.8)} 50%{opacity:.9;transform:scale(1.5)} }
+@keyframes drift { from{transform:translateY(110vh) translateX(0);opacity:0} 15%{opacity:.7} to{transform:translateY(-10vh) translateX(30px);opacity:0} }
+@keyframes floatHeart { from{transform:translateY(110vh) rotate(0deg);opacity:0} 15%{opacity:.7} to{transform:translateY(-15vh) rotate(25deg);opacity:0} }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.12)} }
+@keyframes cinematicIn { from{opacity:0;transform:translateY(20px);filter:blur(8px)} to{opacity:1;transform:none;filter:none} }
+@keyframes cinematicOut { to{opacity:0;transform:translateY(-20px);filter:blur(7px)} }
+
+@media (min-width:700px) {
+  .gallery { grid-template-columns:repeat(3,1fr); }
+  .letter { padding:45px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
+}
